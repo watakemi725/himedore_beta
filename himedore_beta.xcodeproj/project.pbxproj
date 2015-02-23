@@ -13,6 +13,11 @@
 		4620F44C1A9B2B30003ABAB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4620F44B1A9B2B30003ABAB3 /* Images.xcassets */; };
 		4620F44F1A9B2B30003ABAB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4620F44D1A9B2B30003ABAB3 /* LaunchScreen.xib */; };
 		4620F45B1A9B2B30003ABAB3 /* himedore_betaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620F45A1A9B2B30003ABAB3 /* himedore_betaTests.swift */; };
+		466849231A9B2FC000CFC43E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466849221A9B2FC000CFC43E /* SettingViewController.swift */; };
+		466849251A9B307E00CFC43E /* CharaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466849241A9B307E00CFC43E /* CharaViewController.swift */; };
+		466849271A9B308800CFC43E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466849261A9B308800CFC43E /* TimerViewController.swift */; };
+		466849291A9B309200CFC43E /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466849281A9B309200CFC43E /* HintViewController.swift */; };
+		4668492B1A9B30A300CFC43E /* HanteiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4668492A1A9B30A300CFC43E /* HanteiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		4620F4541A9B2B30003ABAB3 /* himedore_betaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = himedore_betaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4620F4591A9B2B30003ABAB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4620F45A1A9B2B30003ABAB3 /* himedore_betaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = himedore_betaTests.swift; sourceTree = "<group>"; };
+		466849221A9B2FC000CFC43E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		466849241A9B307E00CFC43E /* CharaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaViewController.swift; sourceTree = "<group>"; };
+		466849261A9B308800CFC43E /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		466849281A9B309200CFC43E /* HintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
+		4668492A1A9B30A300CFC43E /* HanteiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanteiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,11 @@
 				4620F4441A9B2B30003ABAB3 /* AppDelegate.swift */,
 				4620F4461A9B2B30003ABAB3 /* ViewController.swift */,
 				4620F4481A9B2B30003ABAB3 /* Main.storyboard */,
+				466849241A9B307E00CFC43E /* CharaViewController.swift */,
+				466849261A9B308800CFC43E /* TimerViewController.swift */,
+				466849281A9B309200CFC43E /* HintViewController.swift */,
+				4668492A1A9B30A300CFC43E /* HanteiViewController.swift */,
+				466849221A9B2FC000CFC43E /* SettingViewController.swift */,
 				4620F44B1A9B2B30003ABAB3 /* Images.xcassets */,
 				4620F44D1A9B2B30003ABAB3 /* LaunchScreen.xib */,
 				4620F4421A9B2B30003ABAB3 /* Supporting Files */,
@@ -212,8 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466849271A9B308800CFC43E /* TimerViewController.swift in Sources */,
+				466849291A9B309200CFC43E /* HintViewController.swift in Sources */,
 				4620F4471A9B2B30003ABAB3 /* ViewController.swift in Sources */,
 				4620F4451A9B2B30003ABAB3 /* AppDelegate.swift in Sources */,
+				466849251A9B307E00CFC43E /* CharaViewController.swift in Sources */,
+				466849231A9B2FC000CFC43E /* SettingViewController.swift in Sources */,
+				4668492B1A9B30A300CFC43E /* HanteiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +425,7 @@
 				4620F4601A9B2B30003ABAB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4620F4611A9B2B30003ABAB3 /* Build configuration list for PBXNativeTarget "himedore_betaTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +434,7 @@
 				4620F4631A9B2B30003ABAB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
