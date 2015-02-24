@@ -14,6 +14,18 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+        //入力された値から役割とか計算する
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
