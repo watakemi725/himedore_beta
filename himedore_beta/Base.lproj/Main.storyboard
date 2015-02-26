@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,16 +24,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="VgA-Oj-hZK" kind="push" id="SB5-NC-Ngg"/>
+                                    <segue destination="VgA-Oj-hZK" kind="modal" modalPresentationStyle="pageSheet" modalTransitionStyle="partialCurl" id="SB5-NC-Ngg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6Hp-Xk-XZV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="315"/>
+            <point key="canvasLocation" x="733" y="315"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="W2Y-0E-80v">
@@ -55,7 +56,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="WLz-3b-KyC" kind="push" splitViewControllerTargetIndex="1" id="rcq-KA-Nrh"/>
+                                    <segue destination="WLz-3b-KyC" kind="modal" id="rcq-KA-Nrh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="勘違いブス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qx-7u-dp9">
@@ -126,6 +127,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7JM-CD-Gfg"/>
                     <connections>
                         <outlet property="allNumlabel" destination="R47-cu-Nkv" id="1ah-DD-0Pf"/>
                         <outlet property="oujiNumlabel" destination="YRn-lI-Eaf" id="BPb-48-N95"/>
@@ -133,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjB-99-erF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="315"/>
+            <point key="canvasLocation" x="1149" y="315"/>
         </scene>
         <!--Chara View Controller-->
         <scene sceneID="smM-j5-Mfd">
@@ -204,10 +206,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.80000001192092896" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CDC-bn-gUR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgD-CQ-7Q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021" y="315"/>
+            <point key="canvasLocation" x="1553" y="315"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="brq-LM-eq9">
@@ -246,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7q-0P-mU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="313"/>
+            <point key="canvasLocation" x="1987" y="313"/>
         </scene>
         <!--Hantei View Controller-->
         <scene sceneID="IS7-nz-Fot">
@@ -290,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGi-pn-iX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="313"/>
+            <point key="canvasLocation" x="2433" y="313"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

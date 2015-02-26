@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class SettingViewController: UIViewController {
     
     @IBOutlet var allNumlabel : UILabel!
@@ -16,17 +18,24 @@ class SettingViewController: UIViewController {
     var allNum = 0
     var oujiNum = 0
     
+    var exampleArray: NSMutableArray = NSMutableArray()
     
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         
         
+        exampleArray = ["hoge", "huga", "piyo"]
+        exampleArray.shuffle(exampleArray.count) //外部ファイルの.shuffleで用意したファイルの数字をシャッフルしてくれる
         
+        for i in 0...(exampleArray.count)-1 {
+            println("\(exampleArray[i])")
+        }
         
         //入力された値から役割とか計算する
         
@@ -36,22 +45,31 @@ class SettingViewController: UIViewController {
         
         
     }
-
+    
     @IBAction func plusAllNum(){
         allNum++
-        allNumlabel.text="\(allNum)"
+        allNumlabel.text="\(allNum)人"
     }
     @IBAction func minusAllNum(){
-        allNum--
-        allNumlabel.text="\(allNum)"
+        if(allNum>0){
+            allNum--
+        }
+        allNumlabel.text="\(allNum)人"
+        
     }
     @IBAction func plusOujiNum(){
         oujiNum++
-        oujiNumlabel.text="\(oujiNum)"
+        oujiNumlabel.text="\(oujiNum)人"
     }
     @IBAction func minusOujiNum(){
-        oujiNum--
-        oujiNumlabel.text="\(oujiNum)"
+        if(oujiNum>1){
+            oujiNum--
+        }
+        oujiNumlabel.text="\(oujiNum)人"
+    }
+    
+    @IBAction func start(){
+    
     }
     
     
@@ -61,15 +79,15 @@ class SettingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
