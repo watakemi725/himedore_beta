@@ -18,8 +18,13 @@ class SettingViewController: UIViewController {
     var allNum = 0
     var oujiNum = 0
     
-    var exampleArray: NSMutableArray = NSMutableArray()
+    var yoiDorei = 0
+    var waruiDorei = 0
+    var dorei = 0
     
+    var k=0 //割り算の答え
+    
+    var playerArray: NSMutableArray = NSMutableArray()
     
     
     
@@ -28,22 +33,21 @@ class SettingViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        
-        
-        exampleArray = ["hoge", "huga", "piyo"]
-        exampleArray.shuffle(exampleArray.count) //外部ファイルの.shuffleで用意したファイルの数字をシャッフルしてくれる
-        
-        for i in 0...(exampleArray.count)-1 {
-            println("\(exampleArray[i])")
-        }
+
         
         //入力された値から役割とか計算する
         
+//        self.haiyaku(1, oujiNum: 3)
         
         
         
         
+    }
+    
+    func haiyaku(allNum:Int,oujiNum:Int){
+    
         
+        return
     }
     
     @IBAction func plusAllNum(){
@@ -69,7 +73,37 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func start(){
-    
+        dorei = allNum - oujiNum
+        
+        if(dorei%2==0){
+            k = (dorei/2)-1
+        }else{
+            k=dorei/2
+        }
+        yoiDorei = Int(arc4random() % UInt32(k) + 1) //キャスト
+        println("良い奴隷は\(yoiDorei)人")
+        waruiDorei = dorei - yoiDorei
+        println("悪い奴隷は\(waruiDorei)人")
+        
+        for i in 0..<oujiNum{
+            playerArray.addObject("王子")
+        }
+        for i in 0..<(waruiDorei){
+            playerArray.addObject("悪奴隷")
+        }
+        for i in 0..<(yoiDorei){
+            playerArray.addObject("良い奴隷")
+        }
+        
+        
+        
+        //        playerArray = ["hoge", "huga", "piyo"]
+        playerArray.shuffle(playerArray.count) //外部ファイルの.shuffleで用意したファイルの数字をシャッフルしてくれる
+        
+        for i in 0...(playerArray.count)-1 {
+            println(" \(i+1)人目は\(playerArray[i])")
+        }
+        playerArray.removeAllObjects()
     }
     
     

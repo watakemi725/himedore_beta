@@ -24,7 +24,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="VgA-Oj-hZK" kind="modal" modalPresentationStyle="pageSheet" modalTransitionStyle="partialCurl" id="SB5-NC-Ngg"/>
+                                    <segue destination="VgA-Oj-hZK" kind="modal" id="03d-zt-TZX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -56,7 +56,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="WLz-3b-KyC" kind="modal" id="rcq-KA-Nrh"/>
+                                    <action selector="start" destination="VgA-Oj-hZK" eventType="touchUpInside" id="Nh0-PP-ngN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="勘違いブス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qx-7u-dp9">
