@@ -14,6 +14,8 @@ class HanteiViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //ゲームの判定を表示
     }
 
     override func didReceiveMemoryWarning() {

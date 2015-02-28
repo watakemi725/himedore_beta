@@ -83,7 +83,7 @@ class SettingViewController: UIViewController {
         yoiDorei = Int(arc4random() % UInt32(k) + 1) //キャスト
         println("良い奴隷は\(yoiDorei)人")
         waruiDorei = dorei - yoiDorei
-        println("悪い奴隷は\(waruiDorei)人")
+        println("悪い奴隷は\(waruiDorei  )人")
         
         for i in 0..<oujiNum{
             playerArray.addObject("王子")
@@ -94,8 +94,6 @@ class SettingViewController: UIViewController {
         for i in 0..<(yoiDorei){
             playerArray.addObject("良い奴隷")
         }
-        
-        
         
         //        playerArray = ["hoge", "huga", "piyo"]
         playerArray.shuffle(playerArray.count) //外部ファイルの.shuffleで用意したファイルの数字をシャッフルしてくれる
