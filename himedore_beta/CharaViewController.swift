@@ -10,6 +10,17 @@ import UIKit
 
 class CharaViewController: UIViewController {
 
+    let alertController = UIAlertController(title: "Hello!", message: "This is sample", preferredStyle: .Alert)
+    
+    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil){
+        action in
+    }
+    
+    alertController.addAction(defaultAction)
+    
+    presentViewController(alertController, animated: true, completion: nil)
+   
+    presentview
     override func viewDidLoad() {
         super.viewDidLoad()
 

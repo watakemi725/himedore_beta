@@ -57,6 +57,7 @@
                                 </state>
                                 <connections>
                                     <action selector="start" destination="VgA-Oj-hZK" eventType="touchUpInside" id="Nh0-PP-ngN"/>
+                                    <segue destination="WLz-3b-KyC" kind="modal" id="UCI-hx-flV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="勘違いブス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qx-7u-dp9">
