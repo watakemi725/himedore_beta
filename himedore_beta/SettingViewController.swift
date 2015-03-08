@@ -26,6 +26,8 @@ class SettingViewController: UIViewController {
     
     var playerArray: NSMutableArray = NSMutableArray()
     
+    //デリゲート関係
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
     
     override func viewDidLoad() {
@@ -33,11 +35,11 @@ class SettingViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-
+        
         
         //入力された値から役割とか計算する
         
-//        self.haiyaku(1, oujiNum: 3)
+        //        self.haiyaku(1, oujiNum: 3)
         
         
         
@@ -45,7 +47,7 @@ class SettingViewController: UIViewController {
     }
     
     func haiyaku(allNum:Int,oujiNum:Int){
-    
+        
         
         return
     }
@@ -112,6 +114,12 @@ class SettingViewController: UIViewController {
         
         // シンクロを入れないとうまく動作しないときがあります
         playerHokan.synchronize()
+        
+        
+        appDelegate.turnNum = 1 //appDelegateの変数を操作
+        
+        
+        
         
         playerArray.removeAllObjects()
     }

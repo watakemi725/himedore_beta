@@ -32,6 +32,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     //空の配列を用意
     var playerArray: NSMutableArray = NSMutableArray()
     
+    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    
+    var junbanNum : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,16 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         // Do any additional setup after loading the view.
         
         //順番数字を与える
+        
+        
+        junbanNum = appDelegate.turnNum
+        
+        if junbanNum == nil {
+           
+            junbanNum = 0
+        }
+
+         
         
         
         //配列も受け取る
@@ -90,6 +103,14 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             println("ok")
             //画面遷移をして次のページへとすすめる
             //画面遷移したさきで役職を与えられて次へ移動
+            
+            appDelegate.turnNum = junbanNum  //appDelegateの変数を操作 順番かえる
+            
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "chara" )
+            
+            self.presentViewController( targetView as UIViewController, animated: true
+                , completion: nil)
+
         }
     }
     
@@ -124,7 +145,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             
         } else {
             //UIAlertView使用
-            var av = UIAlertView(title: "本人確認", message:"あなたは\(playerNum)番目の\(playerArray[4])人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+            var av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum+1)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             av.show()
         }
     }

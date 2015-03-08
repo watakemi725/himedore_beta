@@ -11,6 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    var turnNum : Int?
+    
+    
     var window: UIWindow?
 
 

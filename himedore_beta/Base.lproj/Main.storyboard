@@ -142,7 +142,7 @@
         <!--Chara View Controller-->
         <scene sceneID="smM-j5-Mfd">
             <objects>
-                <viewController id="WLz-3b-KyC" customClass="CharaViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="haiyaku" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WLz-3b-KyC" customClass="CharaViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pa6-Qg-64J"/>
                         <viewControllerLayoutGuide type="bottom" id="dyP-yV-kFN"/>
@@ -190,7 +190,7 @@
         <!--Haiyaku View Controller-->
         <scene sceneID="vq0-5L-67G">
             <objects>
-                <viewController id="akb-3a-RpN" customClass="HaiyakuViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chara" useStoryboardIdentifierAsRestorationIdentifier="YES" id="akb-3a-RpN" customClass="HaiyakuViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UiY-HP-iAD"/>
                         <viewControllerLayoutGuide type="bottom" id="5Ws-CJ-aos"/>
@@ -212,13 +212,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="役職" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz6-7E-gr0">
-                                <rect key="frame" x="199" y="195" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="役職名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuI-jb-Lff">
-                                <rect key="frame" x="199" y="233" width="51" height="21"/>
+                                <rect key="frame" x="199" y="195" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -232,9 +226,38 @@
                                     <action selector="complete" destination="akb-3a-RpN" eventType="touchUpInside" id="odQ-BR-8g3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="あんたは" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4z-W5-Eaf">
+                                <rect key="frame" x="78" y="84" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="○○" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w3-q8-skz">
+                                <rect key="frame" x="167" y="84" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="人目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as5-hW-8b9">
+                                <rect key="frame" x="209" y="84" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="役職名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuI-jb-Lff">
+                                <rect key="frame" x="158" y="233" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="hakoLabel" destination="yVB-Gc-gkW" id="g49-3f-MsG"/>
+                        <outlet property="junLabel" destination="5w3-q8-skz" id="3Zq-OA-iVk"/>
+                        <outlet property="yakuLabel" destination="GuI-jb-Lff" id="XQ7-jb-Po5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grs-jy-ELg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,7 +266,7 @@
         <!--Timer View Controller-->
         <scene sceneID="brq-LM-eq9">
             <objects>
-                <viewController id="IXj-Zd-KCQ" customClass="TimerViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IXj-Zd-KCQ" customClass="TimerViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lb7-sd-vvB"/>
                         <viewControllerLayoutGuide type="bottom" id="fQu-dB-dom"/>
