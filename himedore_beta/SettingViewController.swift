@@ -101,6 +101,18 @@ class SettingViewController: UIViewController {
         for i in 0...(playerArray.count)-1 {
             println(" \(i+1)人目は\(playerArray[i])")
         }
+        
+        //配列をnsuserdefaultsに入れる
+        
+        //NSUserDefaultsのインスタンスを生成
+        let playerHokan = NSUserDefaults.standardUserDefaults()
+        
+        //"NAME"というキーで配列namesを保存
+        playerHokan.setObject(playerArray, forKey:"player")
+        
+        // シンクロを入れないとうまく動作しないときがあります
+        playerHokan.synchronize()
+        
         playerArray.removeAllObjects()
     }
     

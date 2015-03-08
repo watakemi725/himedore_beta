@@ -18,7 +18,13 @@ class HaiyakuViewController: UIViewController {
         //何番目か確認する
         //nsuserdefaultsで配役の配列はあたえていいんじゃないの
         
+        //NSUserDefaultsのインスタンスを生成
+        let playerHokan = NSUserDefaults.standardUserDefaults()
         
+        if let names = playerHokan.objectForKey("player") as? [String] {
+            // namesを参照可能
+            println("あったで")
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -25,8 +25,12 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     //
     
     
-
     
+    //NSUserDefaultsのインスタンスを生成
+    let playerHokan = NSUserDefaults.standardUserDefaults()
+    
+    //空の配列を用意
+    var playerArray: NSMutableArray = NSMutableArray()
     
     
     override func viewDidLoad() {
@@ -35,12 +39,39 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         // Do any additional setup after loading the view.
         
         //順番数字を与える
+        
+        
         //配列も受け取る
         
-         self.alertshow("wao", boxNum: 3, playerNum: 5)
-
+        
+        //前回の保存内容があるかどうかを判定
+        if((playerHokan.objectForKey("player")) != nil){
+            
+            //objectsを配列として確定させ、前回の保存内容を格納
+            let objects = playerHokan.objectForKey("player") as? NSMutableArray
+            
+            //各名前を格納するための変数を宣言
+            var nameString:AnyObject
+            
+            //前回の保存内容が格納された配列の中身を一つずつ取り出す
+            for nameString in objects!{
+                //配列に追加していく
+                playerArray.addObject(nameString as NSString)
+            }
+        }
         
 
+        
+        
+        
+        
+        
+        self.alertshow("wao", boxNum: 3, playerNum: 5)
+        
+        
+        
+        
+        
     }
     
     
@@ -89,11 +120,11 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             
             presentViewController(ac, animated: true, completion: nil)
             
-           
+            
             
         } else {
             //UIAlertView使用
-            var av = UIAlertView(title: "本人確認", message:"あなたは\(playerNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+            var av = UIAlertView(title: "本人確認", message:"あなたは\(playerNum)番目の\(playerArray[4])人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             av.show()
         }
     }
