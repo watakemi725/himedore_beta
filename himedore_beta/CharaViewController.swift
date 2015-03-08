@@ -34,6 +34,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         
         // Do any additional setup after loading the view.
         
+        //順番数字を与える
+        //配列も受け取る
+        
          self.alertshow("wao", boxNum: 3, playerNum: 5)
 
         
@@ -90,7 +93,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             
         } else {
             //UIAlertView使用
-            var av = UIAlertView(title: "本人確認", message:"Message\(playerNum)番目", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+            var av = UIAlertView(title: "本人確認", message:"あなたは\(playerNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             av.show()
         }
     }
