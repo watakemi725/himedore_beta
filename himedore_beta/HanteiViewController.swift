@@ -55,7 +55,7 @@ class HanteiViewController: UIViewController {
         
         for i in 0...(playerArray.count)-1 {
              haiyakuMojiA = "\n\(i+1)人目は\(playerArray[i])"
-            haiyakuMojiC = haiyakuMojiA + haiyakuMojiB
+            haiyakuMojiC = haiyakuMojiB + haiyakuMojiA
             
             
             

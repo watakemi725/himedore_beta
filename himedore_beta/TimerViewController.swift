@@ -79,22 +79,8 @@ class TimerViewController: UIViewController {
             
         }else{
             //画面遷移
-            
-  timer.invalidate()
-            
-            if viewNum == 1 {
-            
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "hint" )
-            
-            self.presentViewController( targetView as UIViewController, animated: true
-                , completion: nil)
-            }else{
-                
-                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "keka" )
-                
-                self.presentViewController( targetView as UIViewController, animated: true
-                    , completion: nil)
-            }
+            self.end()
+
         }
         
 }
@@ -113,11 +99,16 @@ class TimerViewController: UIViewController {
         
         //timerが動いてるなら.
 
+        self.end()
+        
+    }
+    
+    func end(){
+        
         timer.invalidate()
         
-        
         if viewNum == 1 {
-
+            
             
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "hint" )
             
@@ -128,8 +119,8 @@ class TimerViewController: UIViewController {
             
             self.presentViewController( targetView as UIViewController, animated: true
                 , completion: nil)
+            appDelegate.viewNum = nil
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
