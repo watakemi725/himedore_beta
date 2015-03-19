@@ -27,6 +27,7 @@ class TimerViewController: UIViewController {
     var cnt : Int = 1000 //timer用のカウント
     
     @IBOutlet var timerLabel : UILabel!
+    @IBOutlet var gameLabel : UILabel!
     
     
     //タイマー
@@ -59,8 +60,11 @@ class TimerViewController: UIViewController {
             
             appDelegate.viewNum = viewNum
             
+            gameLabel.text = "1回目の話し合い"
+            
         }else{
             viewNum = 2
+            gameLabel.text = "2回目の話し合い"
         }
         
     }
@@ -73,7 +77,7 @@ class TimerViewController: UIViewController {
             cnt -= 1
             
             //桁数を指定して文字列を作る.
-            let str = "\(cnt)"
+            let str = "0:0\(cnt)"
             
             timerLabel.text = str
             

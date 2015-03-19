@@ -25,6 +25,13 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     //
     
     
+    @IBOutlet var hakoLabel : UILabel!
+    @IBOutlet var yakuLabel : UILabel!
+    @IBOutlet var junLabel : UILabel!
+    
+    
+    
+    
     
     //NSUserDefaultsのインスタンスを生成
     let playerHokan = NSUserDefaults.standardUserDefaults()
@@ -32,9 +39,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     //空の配列を用意
     var playerArray: NSMutableArray = NSMutableArray()
     
-    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+//    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
-    var junbanNum : Int!
+    var junbanNum = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +51,12 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         //順番数字を与える
         
         
-        junbanNum = appDelegate.turnNum
-        
-        if junbanNum == nil {
-           
-            junbanNum = 0
-        }
+//        junbanNum = appDelegate.turnNum
+//        
+//        if junbanNum == nil {
+//           
+//            junbanNum = 0
+//        }
 
          
         
@@ -75,7 +82,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         
 
         
-        
+      
         
         
         
@@ -91,7 +98,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     //アラート
     
     
-    
+    //アラートが押されたときの機能
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if (buttonIndex == alertView.cancelButtonIndex) {
             //Canceled
@@ -101,15 +108,14 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         } else {
             //OK
             println("ok")
+            
+            self.display()
+            
+            
             //画面遷移をして次のページへとすすめる
             //画面遷移したさきで役職を与えられて次へ移動
             
-            appDelegate.turnNum = junbanNum  //appDelegateの変数を操作 順番かえる
-            
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "chara" )
-            
-            self.presentViewController( targetView as UIViewController, animated: true
-                , completion: nil)
+
 
         }
     }
@@ -147,17 +153,61 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             //UIAlertView使用
             var av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             av.show()
+            
         }
     }
     
-    @IBAction func alertBtn(sender: UIButton) {
-        let alertController = UIAlertController(title: "Hello!", message: "This is Alert sample.", preferredStyle: .Alert)
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func alertBtn() {
         
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
+        if (playerArray.count==junbanNum ){
+            //おわり　タイマーへ
+            println("おわりんこ")
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "timer" )
+            self.presentViewController( targetView as UIViewController, animated: true
+                , completion: nil)
+            //            self.dismissViewControllerAnimated(true, completion: nil)
+        }else{
+            //順番を増やして 前の画面へ戻る次の人のターン
+              junbanNum++   //appDelegateの変数を操作 順番かえる
+            
+            //アラートをまた表示する
+            
+            
+            var av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+            av.show()
+            
+            
+            
+        }
+
         
-        presentViewController(alertController, animated: true, completion: nil)
+
     }
+    
+    
+    func display(){
+        //あとは表示してあげる
+        junLabel.text = "\(junbanNum)"
+        
+        //もしも王子なら箱は秘密やで
+        if (playerArray[junbanNum-1] as NSString == "王子"){
+        hakoLabel.text = "秘密やで"
+        }else{
+        hakoLabel.text = "2"
+        }
+        yakuLabel.text = "\(playerArray[junbanNum-1])"
+    }
+    
+    
+    
+    
     
     /*
     // MARK: - Navigation

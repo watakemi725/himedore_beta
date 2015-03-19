@@ -33,7 +33,7 @@ class HanteiViewController: UIViewController {
         //全員の配役を表示
         
         haiyakuMojiA = ""
-        haiyakuMojiB = ""
+        haiyakuMojiB = "正解の箱は2"
         haiyakuMojiC = ""
         
         

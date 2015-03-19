@@ -41,7 +41,8 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         
         //        self.haiyaku(1, oujiNum: 3)
         
-        
+        allNumlabel.text = "\(allNum)人"
+        oujiNumlabel.text = "\(oujiNum)人"
         
         
     }
