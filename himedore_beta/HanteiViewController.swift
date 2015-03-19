@@ -9,6 +9,19 @@
 import UIKit
 
 class HanteiViewController: UIViewController {
+    
+    @IBOutlet var haiyakuText : UITextView!
+    
+    var haiyakuMojiA : NSString!
+    var haiyakuMojiB : NSString!
+    var haiyakuMojiC : NSString!
+    
+    
+    //NSUserDefaultsのインスタンスを生成
+    let playerHokan = NSUserDefaults.standardUserDefaults()
+    
+    //空の配列を用意
+    var playerArray: NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +29,43 @@ class HanteiViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //ゲームの判定を表示
+        
+        //全員の配役を表示
+        
+        haiyakuMojiA = ""
+        haiyakuMojiB = ""
+        haiyakuMojiC = ""
+        
+        
+        //前回の保存内容があるかどうかを判定
+        if((playerHokan.objectForKey("player")) != nil){
+            
+            //objectsを配列として確定させ、前回の保存内容を格納
+            let objects = playerHokan.objectForKey("player") as? NSMutableArray
+            
+            //各名前を格納するための変数を宣言
+            var nameString:AnyObject
+            
+            //前回の保存内容が格納された配列の中身を一つずつ取り出す
+            for nameString in objects!{
+                //配列に追加していく
+                playerArray.addObject(nameString as NSString)
+            }
+        }
+        
+        for i in 0...(playerArray.count)-1 {
+             haiyakuMojiA = "\n\(i+1)人目は\(playerArray[i])"
+            haiyakuMojiC = haiyakuMojiA + haiyakuMojiB
+            
+            
+            
+            haiyakuMojiB = haiyakuMojiC
+            
+
+                
+            println(" \(i+1)人目は\(playerArray[i])")
+        }
+        haiyakuText.text = haiyakuMojiB
     }
 
     override func didReceiveMemoryWarning() {

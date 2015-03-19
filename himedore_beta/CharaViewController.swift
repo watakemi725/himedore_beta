@@ -145,7 +145,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             
         } else {
             //UIAlertView使用
-            var av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum+1)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+            var av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             av.show()
         }
     }

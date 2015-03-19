@@ -15,8 +15,8 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
     @IBOutlet var allNumlabel : UILabel!
     @IBOutlet var oujiNumlabel : UILabel!
     
-    var allNum = 0
-    var oujiNum = 0
+    var allNum = 4
+    var oujiNum = 1
     
     var yoiDorei = 0
     var waruiDorei = 0
@@ -57,7 +57,7 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         allNumlabel.text="\(allNum)人"
     }
     @IBAction func minusAllNum(){
-        if(allNum>0){
+        if(allNum>4){
             allNum--
         }
         allNumlabel.text="\(allNum)人"
@@ -85,10 +85,13 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
                 k=dorei/2
             }
             
+                
             yoiDorei = Int(arc4random() % UInt32(k) + 1) //キャスト
             println("良い奴隷は\(yoiDorei)人")
             waruiDorei = dorei - yoiDorei
             println("悪い奴隷は\(waruiDorei  )人")
+            
+            appDelegate.hiritu = "\(yoiDorei):\(waruiDorei)"
             
             for i in 0..<oujiNum{
                 playerArray.addObject("王子")

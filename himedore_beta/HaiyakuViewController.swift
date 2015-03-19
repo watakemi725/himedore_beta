@@ -52,9 +52,9 @@ class HaiyakuViewController: UIViewController {
             
             
             //あとは表示してあげる
-            junLabel.text = "\(junbanNum+1)"
+            junLabel.text = "\(junbanNum)"
             hakoLabel.text = "2"
-            yakuLabel.text = "\(playerArray[junbanNum])"
+            yakuLabel.text = "\(playerArray[junbanNum-1])"
             
             
         }
@@ -70,22 +70,24 @@ class HaiyakuViewController: UIViewController {
     @IBAction func complete(){
         //元の画面にもどるか、最後のプレーヤーだったらタイマーを開始するように反手居るしてあげる
         
-        if (playerArray.count==junbanNum+1 ){
+        
+        if (playerArray.count==junbanNum ){
             //おわり　タイマーへ
             println("おわりんこ")
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "timer" )
-            self.presentViewController( targetView as UIViewController, animated: false
+            self.presentViewController( targetView as UIViewController, animated: true
                 , completion: nil)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            //            self.dismissViewControllerAnimated(true, completion: nil)
         }else{
+            //順番を増やして 前の画面へ戻る次の人のターン
             appDelegate.turnNum = junbanNum + 1  //appDelegateの変数を操作 順番かえる
             
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "haiyaku" )
             
-            self.presentViewController( targetView as UIViewController, animated: false
+            self.presentViewController( targetView as UIViewController, animated: true
                 , completion: nil)
             //けす
-        self.dismissViewControllerAnimated(true, completion: nil)
+            //        self.dismissViewControllerAnimated(true, completion: nil)
         }
         
         
