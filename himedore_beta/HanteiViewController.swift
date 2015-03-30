@@ -16,16 +16,18 @@ class HanteiViewController: UIViewController {
     var haiyakuMojiB : NSString!
     var haiyakuMojiC : NSString!
     
+    //入力画面で入力させてから発表！！
+    
     
     //NSUserDefaultsのインスタンスを生成
     let playerHokan = NSUserDefaults.standardUserDefaults()
     
     //空の配列を用意
     var playerArray: NSMutableArray = NSMutableArray()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         //ゲームの判定を表示
@@ -54,34 +56,36 @@ class HanteiViewController: UIViewController {
         }
         
         for i in 0...(playerArray.count)-1 {
-             haiyakuMojiA = "\n\(i+1)人目は\(playerArray[i])"
+            haiyakuMojiA = "\n\(i+1)人目は\(playerArray[i])"
             haiyakuMojiC = haiyakuMojiB + haiyakuMojiA
             
             
             
             haiyakuMojiB = haiyakuMojiC
             
-
-                
+            
+            
             println(" \(i+1)人目は\(playerArray[i])")
         }
+        
         haiyakuText.text = haiyakuMojiB
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
