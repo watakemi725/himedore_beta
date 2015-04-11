@@ -39,7 +39,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     //空の配列を用意
     var playerArray: NSMutableArray = NSMutableArray()
     
-//    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    //    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
     var junbanNum = 1
     
@@ -51,14 +51,14 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         //順番数字を与える
         
         
-//        junbanNum = appDelegate.turnNum
-//        
-//        if junbanNum == nil {
-//           
-//            junbanNum = 0
-//        }
-
-         
+        //        junbanNum = appDelegate.turnNum
+        //
+        //        if junbanNum == nil {
+        //
+        //            junbanNum = 0
+        //        }
+        
+        
         
         
         //配列も受け取る
@@ -80,9 +80,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             }
         }
         
-
         
-      
+        
+        
         
         
         
@@ -115,8 +115,8 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             //画面遷移をして次のページへとすすめる
             //画面遷移したさきで役職を与えられて次へ移動
             
-
-
+            
+            
         }
     }
     
@@ -175,7 +175,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             //            self.dismissViewControllerAnimated(true, completion: nil)
         }else{
             //順番を増やして 前の画面へ戻る次の人のターン
-              junbanNum++   //appDelegateの変数を操作 順番かえる
+            junbanNum++   //appDelegateの変数を操作 順番かえる
             
             //アラートをまた表示する
             
@@ -186,9 +186,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             
             
         }
-
         
-
+        
+        
     }
     
     
@@ -198,9 +198,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         
         //もしも王子なら箱は秘密やで
         if (playerArray[junbanNum-1] as NSString == "王子"){
-        hakoLabel.text = "秘密やで"
+            hakoLabel.text = "秘密やで"
         }else{
-        hakoLabel.text = "2"
+            hakoLabel.text = "2"
         }
         yakuLabel.text = "\(playerArray[junbanNum-1])"
     }

@@ -9,8 +9,9 @@
 import UIKit
 
 
-
 class SettingViewController: UIViewController ,UIAlertViewDelegate{
+    
+    @IBOutlet var btn : UIButton!
     
     @IBOutlet var allNumlabel : UILabel!
     @IBOutlet var oujiNumlabel : UILabel!
@@ -86,7 +87,7 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
                 k=dorei/2
             }
             
-                
+            
             yoiDorei = Int(arc4random() % UInt32(k) + 1) //キャスト
             println("良い奴隷は\(yoiDorei)人")
             waruiDorei = dorei - yoiDorei
@@ -131,10 +132,22 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             playerArray.removeAllObjects()
             
             
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "haiyaku" )
+            //数秒待って配役中的なちょっとした動きをつける
             
-            self.presentViewController( targetView as UIViewController, animated: false
-                , completion: nil)
+            let delay = 3.0 * Double(NSEC_PER_SEC)
+            let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue(), {
+                println("dispatch after!")
+                
+                var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "haiyaku" )
+                
+                self.presentViewController( targetView as UIViewController, animated: false
+                    , completion: nil)
+                
+            })
+            
+            
+            
             
         }else{
             //数が足らんor おかしいやろ
@@ -148,9 +161,9 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
                     
                     //画面遷移も何もせずにとどまる
                 }
-            
+                
             }
-
+            
             
             if objc_getClass("UIAlertController") != nil {
                 //UIAlertController使用
@@ -171,17 +184,11 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
                 
                 presentViewController(ac, animated: true, completion: nil)
                 
-                
-                
             } else {
                 //UIAlertView使用
                 var av = UIAlertView(title: "警告", message:"王子の数を減らすか、\n全プレーヤー数を増やしてください", delegate: self, cancelButtonTitle: "OK")
                 av.show()
             }
-            
-            
-    
-            
             
             
         }

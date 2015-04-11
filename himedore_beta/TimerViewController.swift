@@ -46,12 +46,12 @@ class TimerViewController: UIViewController {
         cnt = 10
         
         //timerが動いてるなら.
-
-           
+        
+        
         
         //timerを生成する.
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "onUpdate:", userInfo: nil, repeats: true)
-            
+        
         
         viewNum = appDelegate.viewNum
         
@@ -84,10 +84,10 @@ class TimerViewController: UIViewController {
         }else{
             //画面遷移
             self.end()
-
+            
         }
         
-}
+    }
     //plusされた時
     
     @IBAction func plusone(){
@@ -102,7 +102,7 @@ class TimerViewController: UIViewController {
     @IBAction func skip(){
         
         //timerが動いてるなら.
-
+        
         self.end()
         
     }
