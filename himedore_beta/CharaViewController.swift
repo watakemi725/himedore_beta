@@ -43,8 +43,12 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     
     var junbanNum = 1
     
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // Do any additional setup after loading the view.
         
@@ -200,7 +204,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         if (playerArray[junbanNum-1] as NSString == "王子"){
             hakoLabel.text = "秘密やで"
         }else{
-            hakoLabel.text = "2"
+            hakoLabel.text = "\(appDelegate.oriNum)"
         }
         yakuLabel.text = "\(playerArray[junbanNum-1])"
     }

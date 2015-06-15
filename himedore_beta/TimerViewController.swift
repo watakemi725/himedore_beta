@@ -119,7 +119,7 @@ class TimerViewController: UIViewController {
             self.presentViewController( targetView as UIViewController, animated: true
                 , completion: nil)
         }else{
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "keka" )
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "text" )
             
             self.presentViewController( targetView as UIViewController, animated: true
                 , completion: nil)

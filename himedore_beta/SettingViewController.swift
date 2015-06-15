@@ -28,7 +28,8 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
     var playerArray: NSMutableArray = NSMutableArray()
     
     //デリゲート関係
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    //AppDelegateのインスタンスを取得
     
     
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         allNumlabel.text = "\(allNum)人"
         oujiNumlabel.text = "\(oujiNum)人"
         
+        appDelegate.oriNum = Int(arc4random() % 5 + 1)
         
     }
     

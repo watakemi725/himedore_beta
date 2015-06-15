@@ -11,12 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var oriNum : Int!
     
     var turnNum : Int?
     
     var viewNum : Int?
     
     var hiritu : NSString?
+    
+    
     
     
     var window: UIWindow?

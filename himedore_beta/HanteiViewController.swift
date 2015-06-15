@@ -12,6 +12,8 @@ class HanteiViewController: UIViewController {
     
     @IBOutlet var haiyakuText : UITextView!
     
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    
     var haiyakuMojiA : NSString!
     var haiyakuMojiB : NSString!
     var haiyakuMojiC : NSString!
@@ -35,7 +37,7 @@ class HanteiViewController: UIViewController {
         //全員の配役を表示
         
         haiyakuMojiA = ""
-        haiyakuMojiB = "正解の箱は2"
+        haiyakuMojiB = "正解の箱は\(appDelegate.oriNum)"
         haiyakuMojiC = ""
         
         
