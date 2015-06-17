@@ -12,6 +12,8 @@ class HintViewController: UIViewController {
     
     var hiritu : NSString!
     
+//    var hintNum : Int!
+    
     @IBOutlet var label : UILabel!
     
     @IBOutlet var hintText : UITextView!
@@ -23,20 +25,71 @@ class HintViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        //どっちか選べって感じかな
-        
-        hiritu = appDelegate.hiritu
+        //ランダムをまわしてヒントをとってくる、情報を呈示する。
         
         
-        hintText.text = " 良:悪の比率は\(hiritu) \n 勘違いブスは○○を知っている "
+        
+        
+//self.showKesuBox()
         
         //タイマーもつけちゃって良いかな
+    }
+    
+    @IBAction func hintpush(sender: UIButton){
+//        sender.tag = hintNum
+        
+        switch sender.tag{
+        case 0 :
+            showHiritu()
+            break
+            
+        case 1 :
+            showBusuYaku()
+            break
+        case 2 :
+            showKesuBox()
+            break
+
+        default :
+            break
+        
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //比率を表示する
+    func showHiritu(){
+        hiritu = appDelegate.hiritu
+        
+        hintText.text = " 良:悪の比率は\(hiritu) \n  "
+    }
+    
+    //ブスの配役を表示
+    func showBusuYaku(){
+        hintText.text = " 勘違いの役職は\(appDelegate.busuYaku)  "
+    }
+    
+    //消すボックスを表示
+    func showKesuBox(){
+        self.kesuBox(appDelegate.oriNum)
+        hintText.text = "消す箱は\(appDelegate.kesuBox)番目"
+    }
+    
+    func kesuBox(seikai:Int){
+        self.kesuRandom()
+        do{
+            self.kesuRandom()
+        }while appDelegate.kesuBox == seikai
+    }
+    func kesuRandom(){
+        appDelegate.kesuBox = Int(arc4random() % 5 + 1)
+    }
+    
+    
     
     @IBAction func back(){
         var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "timer" )

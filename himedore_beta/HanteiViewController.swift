@@ -11,6 +11,7 @@ import UIKit
 class HanteiViewController: UIViewController {
     
     @IBOutlet var haiyakuText : UITextView!
+    @IBOutlet var resultLabel : UILabel!
     
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
@@ -34,10 +35,18 @@ class HanteiViewController: UIViewController {
         
         //ゲームの判定を表示
         
+        if appDelegate.Result == true {
+        
+        resultLabel.text = "無事着陸"
+
+        }else{
+            resultLabel.text = "爆弾爆発"
+        }
+        
         //全員の配役を表示
         
         haiyakuMojiA = ""
-        haiyakuMojiB = "正解の箱は\(appDelegate.oriNum)"
+        haiyakuMojiB = "正解の箱は\(appDelegate.oriNum)\n勘違いブスは\(appDelegate.busuBanme+1)人目"
         haiyakuMojiC = ""
         
         

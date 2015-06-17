@@ -20,6 +20,9 @@ class TimerViewController: UIViewController {
     
     */
     
+     var minText : NSString!
+    var secText : NSString!
+    
     var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
     var viewNum : Int?
@@ -42,8 +45,10 @@ class TimerViewController: UIViewController {
         
         
         //画面開くとともにタイマー開始
+        ////////////////////timer 設定 するよーーーーーーーーーーー
+        cnt = 100
         
-        cnt = 10
+        
         
         //timerが動いてるなら.
         
@@ -77,9 +82,16 @@ class TimerViewController: UIViewController {
             cnt -= 1
             
             //桁数を指定して文字列を作る.
-            let str = "0:0\(cnt)"
+//            let str = "0:0\(cnt)"
             
-            timerLabel.text = str
+            minText = "\(cnt / 60)"
+            if (cnt%60<10){
+            secText = ":0\(cnt % 60)"
+            }else if(cnt%60>9){
+            secText = ":\(cnt % 60)"
+            }
+        
+            timerLabel.text = minText + secText
             
         }else{
             //画面遷移

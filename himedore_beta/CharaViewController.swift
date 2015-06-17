@@ -48,6 +48,12 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //ブスかぶってるか判定
+        
+        
+        
+
+        
         
         
         // Do any additional setup after loading the view.
@@ -92,14 +98,14 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         
         self.alertshow("wao", boxNum: 3, playerNum: 5)
         
-        
-        
+        //ヒント用ブスの役職を入れる感じ
+        appDelegate.busuYaku = playerArray[appDelegate.busuBanme] as NSString
         
         
     }
     
     
-    //アラート
+
     
     
     //アラートが押されたときの機能
@@ -201,11 +207,28 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         junLabel.text = "\(junbanNum)"
         
         //もしも王子なら箱は秘密やで
-        if (playerArray[junbanNum-1] as NSString == "王子"){
+        if (playerArray[junbanNum-1] as NSString == "警察官"){
             hakoLabel.text = "秘密やで"
-        }else{
+        }else if (appDelegate.busuBool == true){
+            //勘違いブスがいる
+            println("ブスあり")
+            //もしもブス番目と一致したならブス番号を表示
+            if junbanNum-1 == appDelegate.busuBanme {
+                hakoLabel.text = "\(appDelegate.busuNum)"
+                
+            }else if junbanNum-1 != appDelegate.busuBanme {
+                //それ以外なら普通の数字を表示せよ
+                hakoLabel.text = "\(appDelegate.oriNum)"
+            }
+            
+            //ブス機能自体OFF
+        }else if (appDelegate.busuBool == false){
+            //勘違いブスがいないから普通にやってええよ
+            println("ブスなし")
+            
             hakoLabel.text = "\(appDelegate.oriNum)"
         }
+        
         yakuLabel.text = "\(playerArray[junbanNum-1])"
     }
     

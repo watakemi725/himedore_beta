@@ -15,6 +15,7 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
     
     @IBOutlet var allNumlabel : UILabel!
     @IBOutlet var oujiNumlabel : UILabel!
+//    @IBOutlet var kanchigaiBtn : UISwitch!
     
     var allNum = 4
     var oujiNum = 1
@@ -46,14 +47,39 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         allNumlabel.text = "\(allNum)人"
         oujiNumlabel.text = "\(oujiNum)人"
         
+        //檻の設定
         appDelegate.oriNum = Int(arc4random() % 5 + 1)
         
+        //ブス番号の設定
+        self.busuRandom()
+        do{
+            self.busuRandom()
+        }while appDelegate.busuNum == appDelegate.oriNum
+        
+        println("ぶすは\(appDelegate.busuNum),おりは\(appDelegate.oriNum)")
+        
+        appDelegate.busuBool = false
+        
+    }
+    
+    func busuRandom(){
+     appDelegate.busuNum = Int(arc4random() % 5 + 1)
     }
     
     func haiyaku(allNum:Int,oujiNum:Int){
         
         
         return
+    }
+    
+    @IBAction func busu(sender: UISwitch){
+        if sender.on {
+            println("on")
+            appDelegate.busuBool = true
+        }else{
+            println("off")
+            appDelegate.busuBool = false
+        }
     }
     
     @IBAction func plusAllNum(){
@@ -78,9 +104,11 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         oujiNumlabel.text="\(oujiNum)人"
     }
     
+
+    
     @IBAction func start(){
         dorei = allNum - oujiNum
-        
+        appDelegate.doreiNum = dorei-1
         if(dorei>2){
             
             if(dorei%2==0){
@@ -97,14 +125,18 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             
             appDelegate.hiritu = "\(yoiDorei):\(waruiDorei)"
             
+            
+            //配役arrayの仲に追加
             for i in 0..<oujiNum{
-                playerArray.addObject("王子")
+                playerArray.addObject("警察官")
             }
+            
             for i in 0..<(waruiDorei){
-                playerArray.addObject("悪奴隷")
-            }
+                playerArray.addObject("悪い爆弾班")
+                }
+            
             for i in 0..<(yoiDorei){
-                playerArray.addObject("良い奴隷")
+                playerArray.addObject("良い爆弾班")
             }
             
             //        playerArray = ["hoge", "huga", "piyo"]
@@ -127,6 +159,19 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             
             
             appDelegate.turnNum = 1 //appDelegateの変数を操作
+            
+            
+            
+            //ブスが何番目の人なのかをランダムに決定する。警察かぶらないようにもする
+            self.busuBanneRandom(self.dorei)
+            do {
+                println(" ブスは\(appDelegate.busuBanme+1)人目")
+                self.busuBanneRandom(appDelegate.doreiNum)
+            }while playerArray[appDelegate.busuBanme] as NSString == "警察官"
+            //ブス番目が警察官と一致している間はランダムをまわすようにすること
+            
+            println(" ブスは\(appDelegate.busuBanme+1)人目")
+            
             
             
             
@@ -198,6 +243,11 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         
     }
     
+    func busuBanneRandom(dorei:Int) -> Int{
+        
+        appDelegate.busuBanme = Int(arc4random() % UInt32(dorei) + 1)
+        return 0
+    }
     
     
     override func didReceiveMemoryWarning() {

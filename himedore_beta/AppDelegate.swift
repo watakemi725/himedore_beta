@@ -19,6 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var hiritu : NSString?
     
+    var busuBool : Bool?
+    
+    var busuNum : Int!
+    
+    var busuBanme : Int!
+    var busuYaku : NSString!
+    
+    var doreiNum : Int!
+    
+    var kesuBox : Int!
+    
+    var Result : Bool!
     
     
     
