@@ -21,6 +21,7 @@ class HanteiViewController: UIViewController {
     
     //入力画面で入力させてから発表！！
     
+    //pablooooooooooooooooooooooooooon
     
     //NSUserDefaultsのインスタンスを生成
     let playerHokan = NSUserDefaults.standardUserDefaults()
