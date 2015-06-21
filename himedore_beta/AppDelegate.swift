@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var busuNum : Int!
     
     var busuBanme : Int!
+    
     var busuYaku : NSString!
     
     var doreiNum : Int!
