@@ -26,7 +26,7 @@ class TextViewController: UIViewController {
         
         //ここでは箱を選んでもらう
         
-        //1~5個の箱を用意buttonで
+        //1~5個の箱を用意button
         
     }
     
