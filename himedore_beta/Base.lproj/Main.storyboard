@@ -5,6 +5,25 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="8cY-Cu-4Qv">
+            <objects>
+                <viewController id="vQR-Ty-EvC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yev-vb-RyL"/>
+                        <viewControllerLayoutGuide type="bottom" id="81I-S9-9U7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tqY-Df-hjm">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9w-uS-q99" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="253" y="-273"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="himedore_beta" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,6 +67,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="253" y="173"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="30W-tA-taL">
+            <objects>
+                <viewController id="45r-nK-hlo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IMD-tX-Jdv"/>
+                        <viewControllerLayoutGuide type="bottom" id="oUy-Dk-OG0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MT3-55-6iF">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XZm-1y-ila" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-273"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="W2Y-0E-80v">
@@ -312,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grs-jy-ELg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267" y="-409"/>
+            <point key="canvasLocation" x="1485" y="-397"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="brq-LM-eq9">
