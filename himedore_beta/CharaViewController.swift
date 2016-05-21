@@ -43,7 +43,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     
     var junbanNum = 1
     
-    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             //前回の保存内容が格納された配列の中身を一つずつ取り出す
             for nameString in objects!{
                 //配列に追加していく
-                playerArray.addObject(nameString as NSString)
+                playerArray.addObject(nameString as! NSString)
             }
         }
         
@@ -99,7 +99,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         self.alertshow("wao", boxNum: 3, playerNum: 5)
         
         //ヒント用ブスの役職を入れる感じ
-        appDelegate.busuYaku = playerArray[appDelegate.busuBanme] as NSString
+        appDelegate.busuYaku = playerArray[appDelegate.busuBanme] as! NSString
         
         
     }
@@ -112,12 +112,12 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if (buttonIndex == alertView.cancelButtonIndex) {
             //Canceled
-            println("cancle")
+            print("cancle")
             
             //画面遷移も何もせずにとどまる
         } else {
             //OK
-            println("ok")
+            print("ok")
             
             self.display()
             
@@ -142,14 +142,14 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         
         if objc_getClass("UIAlertController") != nil {
             //UIAlertController使用
-            var ac = UIAlertController(title: "Title", message: "Message", preferredStyle: .Alert)
+            let ac = UIAlertController(title: "Title", message: "Message", preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
-                println("Cancel button tapped.")
+                print("Cancel button tapped.")
             }
             
             let okAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
-                println("OK button tapped.")
+                print("OK button tapped.")
             }
             
             ac.addAction(cancelAction)
@@ -161,7 +161,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             
         } else {
             //UIAlertView使用
-            var av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+            let av = UIAlertView(title: "本人確認", message:"あなたは\(junbanNum)番目の人ですか?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             av.show()
             
         }
@@ -178,9 +178,9 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         
         if (playerArray.count==junbanNum ){
             //おわり　タイマーへ
-            println("おわりんこ")
+            print("おわりんこ")
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "timer" )
-            self.presentViewController( targetView as UIViewController, animated: true
+            self.presentViewController( targetView as! UIViewController, animated: true
                 , completion: nil)
             //            self.dismissViewControllerAnimated(true, completion: nil)
         }else{
@@ -207,11 +207,11 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
         junLabel.text = "\(junbanNum)"
         
         //もしも王子なら箱は秘密やで
-        if (playerArray[junbanNum-1] as NSString == "警察官"){
+        if (playerArray[junbanNum-1] as! NSString == "警察官"){
             hakoLabel.text = "秘密やで"
         }else if (appDelegate.busuBool == true){
             //勘違いブスがいる
-            println("ブスあり")
+            print("ブスあり")
             //もしもブス番目と一致したならブス番号を表示
             if junbanNum-1 == appDelegate.busuBanme {
                 hakoLabel.text = "\(appDelegate.busuNum)"
@@ -224,7 +224,7 @@ class CharaViewController: UIViewController, UIAlertViewDelegate {
             //ブス機能自体OFF
         }else if (appDelegate.busuBool == false){
             //勘違いブスがいないから普通にやってええよ
-            println("ブスなし")
+            print("ブスなし")
             
             hakoLabel.text = "\(appDelegate.oriNum)"
         }

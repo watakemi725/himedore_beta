@@ -18,7 +18,7 @@ class HintViewController: UIViewController {
     
     @IBOutlet var hintText : UITextView!
     
-    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +81,7 @@ class HintViewController: UIViewController {
     
     func kesuBox(seikai:Int){
         self.kesuRandom()
-        do{
+        repeat{
             self.kesuRandom()
         }while appDelegate.kesuBox == seikai
     }
@@ -94,7 +94,7 @@ class HintViewController: UIViewController {
     @IBAction func back(){
         var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "timer" )
         
-        self.presentViewController( targetView as UIViewController, animated: true
+        self.presentViewController( targetView as! UIViewController, animated: true
             , completion: nil)
     }
     

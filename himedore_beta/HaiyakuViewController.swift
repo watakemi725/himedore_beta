@@ -21,7 +21,7 @@ class HaiyakuViewController: UIViewController {
     //空の配列を用意
     var playerArray: NSMutableArray = NSMutableArray()
     
-    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     var junbanNum : Int!
     
@@ -46,7 +46,7 @@ class HaiyakuViewController: UIViewController {
             //前回の保存内容が格納された配列の中身を一つずつ取り出す
             for nameString in objects!{
                 //配列に追加していく
-                playerArray.addObject(nameString as NSString)
+                playerArray.addObject(nameString as! NSString)
             }
             
             
@@ -73,9 +73,9 @@ class HaiyakuViewController: UIViewController {
         
         if (playerArray.count==junbanNum ){
             //おわり　タイマーへ
-            println("おわりんこ")
+            print("おわりんこ")
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "timer" )
-            self.presentViewController( targetView as UIViewController, animated: true
+            self.presentViewController( targetView as! UIViewController, animated: true
                 , completion: nil)
             //            self.dismissViewControllerAnimated(true, completion: nil)
         }else{
@@ -84,7 +84,7 @@ class HaiyakuViewController: UIViewController {
             
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "haiyaku" )
             
-            self.presentViewController( targetView as UIViewController, animated: true
+            self.presentViewController( targetView as! UIViewController, animated: true
                 , completion: nil)
             //けす
             //        self.dismissViewControllerAnimated(true, completion: nil)

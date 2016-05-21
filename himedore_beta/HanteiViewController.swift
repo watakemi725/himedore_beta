@@ -13,7 +13,7 @@ class HanteiViewController: UIViewController {
     @IBOutlet var haiyakuText : UITextView!
     @IBOutlet var resultLabel : UILabel!
     
-    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var haiyakuMojiA : NSString!
     var haiyakuMojiB : NSString!
@@ -63,7 +63,7 @@ class HanteiViewController: UIViewController {
             //前回の保存内容が格納された配列の中身を一つずつ取り出す
             for nameString in objects!{
                 //配列に追加していく
-                playerArray.addObject(nameString as NSString)
+                playerArray.addObject(nameString as! NSString)
             }
         }
         
@@ -77,7 +77,7 @@ class HanteiViewController: UIViewController {
             
             
             
-            println(" \(i+1)人目は\(playerArray[i])")
+            print(" \(i+1)人目は\(playerArray[i])")
         }
         
         haiyakuText.text = haiyakuMojiB

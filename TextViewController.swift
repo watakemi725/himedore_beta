@@ -9,7 +9,7 @@
 import UIKit
 
 class TextViewController: UIViewController {
-    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var himehako = 0;
     
     override func viewDidLoad() {
@@ -42,19 +42,19 @@ class TextViewController: UIViewController {
         
         if sender.tag == himehako {
             //正解　良い奴隷と王子の勝ち
-            println("無事着陸")
+            print("無事着陸")
             appDelegate.Result=true
             
         }else{
             //王子の負け
-            println("爆弾爆発")
+            print("爆弾爆発")
             appDelegate.Result=false
             
         }
         
         var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "keka" )
         
-        self.presentViewController( targetView as UIViewController, animated: true
+        self.presentViewController( targetView as! UIViewController, animated: true
             , completion: nil)
         
         

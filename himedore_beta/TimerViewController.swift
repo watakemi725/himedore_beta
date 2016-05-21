@@ -23,7 +23,7 @@ class TimerViewController: UIViewController {
      var minText : NSString!
     var secText : NSString!
     
-    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     var viewNum : Int?
     
@@ -128,12 +128,12 @@ class TimerViewController: UIViewController {
             
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "hint" )
             
-            self.presentViewController( targetView as UIViewController, animated: true
+            self.presentViewController( targetView as! UIViewController, animated: true
                 , completion: nil)
         }else{
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "text" )
             
-            self.presentViewController( targetView as UIViewController, animated: true
+            self.presentViewController( targetView as! UIViewController, animated: true
                 , completion: nil)
             appDelegate.viewNum = nil
         }

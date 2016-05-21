@@ -29,7 +29,7 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
     var playerArray: NSMutableArray = NSMutableArray()
     
     //デリゲート関係
-    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     //AppDelegateのインスタンスを取得
     
     
@@ -52,11 +52,11 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         
         //ブス番号の設定
         self.busuRandom()
-        do{
+        repeat{
             self.busuRandom()
         }while appDelegate.busuNum == appDelegate.oriNum
         
-        println("ぶすは\(appDelegate.busuNum),おりは\(appDelegate.oriNum)")
+        print("ぶすは\(appDelegate.busuNum),おりは\(appDelegate.oriNum)")
         
         appDelegate.busuBool = false
         
@@ -74,10 +74,10 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
     
     @IBAction func busu(sender: UISwitch){
         if sender.on {
-            println("on")
+            print("on")
             appDelegate.busuBool = true
         }else{
-            println("off")
+            print("off")
             appDelegate.busuBool = false
         }
     }
@@ -119,9 +119,9 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             
             
             yoiDorei = Int(arc4random() % UInt32(k) + 1) //キャスト
-            println("良い奴隷は\(yoiDorei)人")
+            print("良い奴隷は\(yoiDorei)人")
             waruiDorei = dorei - yoiDorei
-            println("悪い奴隷は\(waruiDorei  )人")
+            print("悪い奴隷は\(waruiDorei  )人")
             
             appDelegate.hiritu = "\(yoiDorei):\(waruiDorei)"
             
@@ -143,7 +143,7 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             playerArray.shuffle(playerArray.count) //外部ファイルの.shuffleで用意したファイルの数字をシャッフルしてくれる
             
             for i in 0...(playerArray.count)-1 {
-                println(" \(i+1)人目は\(playerArray[i])")
+                print(" \(i+1)人目は\(playerArray[i])")
             }
             
             //配列をnsuserdefaultsに入れる
@@ -164,13 +164,13 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             
             //ブスが何番目の人なのかをランダムに決定する。警察かぶらないようにもする
             self.busuBanneRandom(self.dorei)
-            do {
-                println(" ブスは\(appDelegate.busuBanme+1)人目")
+            repeat {
+                print(" ブスは\(appDelegate.busuBanme+1)人目")
                 self.busuBanneRandom(appDelegate.doreiNum)
-            }while playerArray[appDelegate.busuBanme] as NSString == "警察官"
+            }while playerArray[appDelegate.busuBanme] as! NSString == "警察官"
             //ブス番目が警察官と一致している間はランダムをまわすようにすること
             
-            println(" ブスは\(appDelegate.busuBanme+1)人目")
+            print(" ブスは\(appDelegate.busuBanme+1)人目")
             
             
             
@@ -184,11 +184,11 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
             let delay = 3.0 * Double(NSEC_PER_SEC)
             let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue(), {
-                println("dispatch after!")
+                print("dispatch after!")
                 
                 var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "haiyaku" )
                 
-                self.presentViewController( targetView as UIViewController, animated: false
+                self.presentViewController( targetView as! UIViewController, animated: false
                     , completion: nil)
                 
             })
@@ -199,12 +199,12 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
         }else{
             //数が足らんor おかしいやろ
             
-            println("だめーーー")
+            print("だめーーー")
             
             func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
                 if (buttonIndex == alertView.cancelButtonIndex) {
                     //Canceled
-                    println("たんねーのかよーわかったよー")
+                    print("たんねーのかよーわかったよー")
                     
                     //画面遷移も何もせずにとどまる
                 }
@@ -219,11 +219,11 @@ class SettingViewController: UIViewController ,UIAlertViewDelegate{
                 var ac = UIAlertController(title: "Title", message: "Message", preferredStyle: .Alert)
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
-                    println("Cancel button tapped.")
+                    print("Cancel button tapped.")
                 }
                 
                 let okAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
-                    println("OK button tapped.")
+                    print("OK button tapped.")
                 }
                 
                 ac.addAction(cancelAction)
